@@ -1,4 +1,4 @@
-\section{Document classes}
+\subsection{Document classes}
 \begin{tabular}{@{}ll@{}}
 \verb!book!    & Default is two-sided. \\
 \verb!report!  & No \verb!\part! divisions. \\
@@ -13,7 +13,7 @@ Used at the very beginning of a document:
 end the document.
 
 
-\subsection{Common \texttt{documentclass} options}
+\subsubsection{Common \texttt{documentclass} options}
 \newlength{\MyLen}
 \settowidth{\MyLen}{\texttt{letterpaper}/\texttt{a4paper} \ }
 \begin{tabular}{@{}p{\the\MyLen}%
@@ -31,7 +31,7 @@ Usage:
 \verb!\documentclass[!\textit{opt,opt}\verb!]{!\textit{class}\verb!}!.
 
 
-\subsection{Packages}
+\subsubsection{Packages}
 \settowidth{\MyLen}{\texttt{multicol} }
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
@@ -56,7 +56,7 @@ Use before \verb!\begin{document}!.
 Usage: \verb!\usepackage{!\textit{package}\verb!}!
 
 
-\subsection{Title}
+\subsubsection{Title}
 \settowidth{\MyLen}{\texttt{.author.text.} }
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
@@ -68,7 +68,7 @@ Usage: \verb!\usepackage{!\textit{package}\verb!}!
 These commands go before \verb!\begin{document}!.  The declaration
 \verb!\maketitle! goes at the top of the document.
 
-\subsection{Miscellaneous}
+\subsubsection{Miscellaneous}
 \settowidth{\MyLen}{\texttt{.pagestyle.empty.} }
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
@@ -80,25 +80,25 @@ These commands go before \verb!\begin{document}!.  The declaration
 
 
 
-\section{Document structure}
+\subsection{Document structure}
 \begin{multicols}{2}
 \verb!\part{!\textit{title}\verb!}!  \\
 \verb!\chapter{!\textit{title}\verb!}!  \\
-\verb!\section{!\textit{title}\verb!}!  \\
 \verb!\subsection{!\textit{title}\verb!}!  \\
 \verb!\subsubsection{!\textit{title}\verb!}!  \\
+\verb!\paragraph{!\textit{title}\verb!}!  \\
 \verb!\paragraph{!\textit{title}\verb!}!  \\
 \verb!\subparagraph{!\textit{title}\verb!}!
 \end{multicols}
 {\raggedright
 Use \verb!\setcounter{secnumdepth}{!$x$\verb!}! suppresses heading
 numbers of depth $>x$, where \verb!chapter! has depth 0.
-Use a \texttt{*}, as in \verb!\section*{!\textit{title}\verb!}!,
+Use a \texttt{*}, as in \verb!\subsection*{!\textit{title}\verb!}!,
 to not number a particular item---these items will also not appear
 in the table of contents.
 }
 
-\subsection{Text environments}
+\subsubsection{Text environments}
 \settowidth{\MyLen}{\texttt{.begin.quotation.}}
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
@@ -108,7 +108,7 @@ in the table of contents.
 \verb!\begin{verse}!      &  Quotation block for verse.
 \end{tabular}
 
-\subsection{Lists}
+\subsubsection{Lists}
 \settowidth{\MyLen}{\texttt{.begin.description.}}
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
@@ -124,19 +124,19 @@ in the table of contents.
 
 
 
-\subsection{References}
+\subsubsection{References}
 \settowidth{\MyLen}{\texttt{.pageref.marker..}}
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
 \verb!\label{!\textit{marker}\verb!}!   &  Set a marker for cross-reference, 
                           often of the form \verb!\label{sec:item}!. \\
-\verb!\ref{!\textit{marker}\verb!}!   &  Give section/body number of marker. \\
+\verb!\ref{!\textit{marker}\verb!}!   &  Give subsection/body number of marker. \\
 \verb!\pageref{!\textit{marker}\verb!}! &  Give page number of marker. \\
 \verb!\footnote{!\textit{text}\verb!}!  &  Print footnote at bottom of page. \\
 \end{tabular}
 
 
-\subsection{Floating bodies}
+\subsubsection{Floating bodies}
 \settowidth{\MyLen}{\texttt{.begin.equation..place.}}
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
@@ -151,9 +151,9 @@ The \textit{place} is a list valid placements for the body.  \texttt{t}=top,
 
 %---------------------------------------------------------------------------
 
-\section{Text properties}
+\subsection{Text properties}
 
-\subsection{Font face}
+\subsubsection{Font face}
 \newcommand{\FontCmd}[3]{\PBS\verb!\#1{!\textit{text}\verb!}!  \> %
                          \verb!{\#2 !\textit{text}\verb!}! \> %
                          \#1{#3}}
@@ -200,7 +200,7 @@ The \textit{place} is a list valid placements for the body.  \texttt{t}=top,
 The command (t\textit{tt}t) form handles spacing better than the
 declaration (t{\itshape tt}t) form.
 
-\subsection{Font size}
+\subsubsection{Font size}
 \setlength{\columnsep}{14pt} % Need to move columns apart a little
 \begin{multicols}{2}
 \begin{tabbing}
@@ -224,7 +224,7 @@ These are declarations and should be used in the form
 document.
 
 
-\subsection{Verbatim text}
+\subsubsection{Verbatim text}
 
 \settowidth{\MyLen}{\texttt{.begin.verbatim..} }
 \begin{tabular}{@{}p{\the\MyLen}%
@@ -236,7 +236,7 @@ document.
 \end{tabular}
 
 
-\subsection{Justification}
+\subsubsection{Justification}
 \begin{tabular}{@{}ll@{}}
 \textit{Environment}  &  \textit{Declaration}  \\
 \verb!\begin{center}!      & \verb!\centering!  \\
@@ -244,7 +244,7 @@ document.
 \verb!\begin{flushright}! & \verb!\raggedleft!  \\
 \end{tabular}
 
-\subsection{Miscellaneous}
+\subsubsection{Miscellaneous}
 \verb!\linespread{!$x$\verb!}! changes the line spacing by the
 multiplier $x$.
 
@@ -252,9 +252,9 @@ multiplier $x$.
 
 
 
-\section{Text-mode symbols}
+\subsection{Text-mode symbols}
 
-\subsection{Symbols}
+\subsubsection{Symbols}
 \begin{tabular}{@{}l@{\hspace{1em}}l@{\hspace{2em}}l@{\hspace{1em}}l@{\hspace{2em}}l@{\hspace{1em}}l@{\hspace{2em}}l@{\hspace{1em}}l@{}}
 \&              &  \verb!\&! &
 \_              &  \verb!\_! &
@@ -270,7 +270,7 @@ multiplier $x$.
 \S              &  \verb!\S! \\
 \end{tabular}
 
-\subsection{Accents}
+\subsubsection{Accents}
 \begin{tabular}{@{}l@{\ }l|l@{\ }l|l@{\ }l|l@{\ }l|l@{\ }l@{}}
 \`o   & \verb!\`o! &
 \'o   & \verb!\'o! &
@@ -303,7 +303,7 @@ multiplier $x$.
 \end{tabular}
 
 
-\subsection{Delimiters}
+\subsubsection{Delimiters}
 \begin{tabular}{@{}l@{\ }ll@{\ }ll@{\ }ll@{\ }ll@{\ }ll@{\ }l@{}}
 `       & \verb!`!  &
 ``      & \verb!``! &
@@ -319,7 +319,7 @@ multiplier $x$.
 \textgreater  &  \verb!\textgreater! \\
 \end{tabular}
 
-\subsection{Dashes}
+\subsubsection{Dashes}
 \begin{tabular}{@{}llll@{}}
 \textit{Name} & \textit{Source} & \textit{Example} & \textit{Usage} \\
 hyphen  & \verb!-!   & X-ray          & In words. \\
@@ -328,7 +328,7 @@ em-dash & \verb!---! & Yes---or no?    & Punctuation.
 \end{tabular}
 
 
-\subsection{Line and page breaks}
+\subsubsection{Line and page breaks}
 \settowidth{\MyLen}{\texttt{.pagebreak} }
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
@@ -340,7 +340,7 @@ em-dash & \verb!---! & Yes---or no?    & Punctuation.
 \end{tabular}
 
 
-\subsection{Miscellaneous}
+\subsubsection{Miscellaneous}
 \settowidth{\MyLen}{\texttt{.rule.w..h.} }
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
@@ -357,9 +357,9 @@ em-dash & \verb!---! & Yes---or no?    & Punctuation.
 
 
 
-\section{Tabular environments}
+\subsection{Tabular environments}
 
-\subsection{\texttt{tabbing} environment}
+\subsubsection{\texttt{tabbing} environment}
 \begin{tabular}{@{}l@{\hspace{1.5ex}}l@{\hspace{10ex}}l@{\hspace{1.5ex}}l@{}}
 \verb!\=!  &   Set tab stop. &
 \verb!\>!  &   Go to tab stop.
@@ -369,13 +369,13 @@ Tab stops can be set on ``invisible'' lines with \verb!\kill!
 at the end of the line.  Normally \verb!\\! is used to separate lines.
 
 
-\subsection{\texttt{tabular} environment}
+\subsubsection{\texttt{tabular} environment}
 \verb!\begin{array}[!\textit{pos}\verb!]{!\textit{cols}\verb!}!   \\
 \verb!\begin{tabular}[!\textit{pos}\verb!]{!\textit{cols}\verb!}! \\
 \verb!\begin{tabular*}{!\textit{width}\verb!}[!\textit{pos}\verb!]{!\textit{cols}\verb!}!
 
 
-\subsubsection{\texttt{tabular} column specification}
+\paragraph{\texttt{tabular} column specification}
 \settowidth{\MyLen}{\texttt{p}\{\textit{width}\} \ }
 \begin{tabular}{@{}p{\the\MyLen}@{}p{\linewidth-\the\MyLen}@{}}
 \texttt{l}    &   Left-justified column.  \\
@@ -389,7 +389,7 @@ at the end of the line.  Normally \verb!\\! is used to separate lines.
 \end{tabular}
 
 
-\subsubsection{\texttt{tabular} elements}
+\paragraph{\texttt{tabular} elements}
 \settowidth{\MyLen}{\texttt{.cline.x-y..}}
 \begin{tabular}{@{}p{\the\MyLen}@{}p{\linewidth-\the\MyLen}@{}}
 \verb!\hline!           &  Horizontal line between rows.  \\
@@ -399,7 +399,7 @@ at the end of the line.  Normally \verb!\\! is used to separate lines.
         &  A cell that spans \textit{n} columns, with \textit{cols} column specification.
 \end{tabular}
 
-\section{Math mode}
+\subsection{Math mode}
 For inline math, use \verb!\(...\)! or \verb!$...$!.
 For displayed math, use \verb!\[...\]! or \verb!\begin{equation}!.
 
@@ -418,7 +418,7 @@ $\prod_{k=1}^n$         &
 \verb!\prod_{k=1}^n!    \\ 
 \end{tabular}
 
-\subsection{Math-mode symbols}
+\subsubsection{Math-mode symbols}
 
 % The ordering of these symbols is slightly odd.  This is because I had to put all the
 % long pieces of text in the same column (the right) for it all to fit properly.
@@ -497,16 +497,16 @@ $\Omega$        &  \verb!\Omega!
 \end{tabular}
 \footnotesize
 
-%\subsection{Special symbols}
+%\subsubsection{Special symbols}
 %\begin{tabular}{@{}ll@{}}
 %$^{\circ}$  &  \verb!^{\circ}! Ex: $22^{\circ}\mathrm{C}$: \verb!$22^{\circ}\mathrm{C}$!.
 %\end{tabular}
 
-\section{Bibliography and citations}
+\subsection{Bibliography and citations}
 When using \BibTeX, you need to run \texttt{latex}, \texttt{bibtex},
 and \texttt{latex} twice more to resolve dependencies.
 
-\subsection{Citation types}
+\subsubsection{Citation types}
 \settowidth{\MyLen}{\texttt{.shortciteN.key..}}
 \begin{tabular}{@{}p{\the\MyLen}@{}p{\linewidth-\the\MyLen}@{}}
 \verb!\cite{!\textit{key}\verb!}!       &
@@ -529,7 +529,7 @@ All the above have an \texttt{NP} variant without parentheses;
 Ex. \verb!\citeNP!.
 
 
-\subsection{\BibTeX\ entry types}
+\subsubsection{\BibTeX\ entry types}
 \settowidth{\MyLen}{\texttt{.mastersthesis.}}
 \begin{tabular}{@{}p{\the\MyLen}@{}p{\linewidth-\the\MyLen}@{}}
 \verb!@article!         &  Journal or magazine article. \\
@@ -547,14 +547,14 @@ Ex. \verb!\citeNP!.
 \verb!@unpublished!     &  Unpublished. \\
 \end{tabular}
 
-\subsection{\BibTeX\ fields}
+\subsubsection{\BibTeX\ fields}
 \settowidth{\MyLen}{\texttt{organization.}}
 \begin{tabular}{@{}p{\the\MyLen}@{}p{\linewidth-\the\MyLen}@{}}
 \verb!address!         &  Address of publisher.  Not necessary for major
                                 publishers.  \\
 \verb!author!           &  Names of authors, of format .... \\
 \verb!booktitle!        &  Title of book when part of it is cited. \\
-\verb!chapter!          &  Chapter or section number. \\
+\verb!chapter!          &  Chapter or subsection number. \\
 \verb!edition!          &  Edition of a book. \\
 \verb!editor!           &  Names of editors. \\
 \verb!institution!      &  Sponsoring institution of tech.\ report. \\
@@ -575,7 +575,7 @@ Ex. \verb!\citeNP!.
 \end{tabular}
 Not all fields need to be filled.  See example below.
 
-\subsection{Common \BibTeX\ style files}
+\subsubsection{Common \BibTeX\ style files}
 \begin{tabular}{@{}l@{\hspace{1em}}l@{\hspace{3em}}l@{\hspace{1em}}l@{}}
 \verb!abbrv!    &  Standard &
 \verb!abstract! &  \texttt{alpha} with abstract \\
@@ -593,7 +593,7 @@ The \LaTeX\ document should have the following two lines just before
 \bibliography{bibfile}
 \end{verbatim}
 
-\subsection{\BibTeX\ example}
+\subsubsection{\BibTeX\ example}
 The \BibTeX\ database goes in a file called
 \textit{file}\texttt{.bib}, which is processed with \verb!bibtex file!. 
 \begin{verbatim}
@@ -609,7 +609,7 @@ The \BibTeX\ database goes in a file called
 \end{verbatim}
 
 
-\section{Sample \LaTeX\ document}
+\subsection{Sample \LaTeX\ document}
 \begin{verbatim}
 \documentclass[11pt]{article}
 \usepackage{fullpage}
@@ -618,10 +618,10 @@ The \BibTeX\ database goes in a file called
 \begin{document}
 \maketitle
 
-\section{section}
-\subsection*{subsection without number}
-text \textbf{bold text} text. Some math: $2+2=5$
 \subsection{subsection}
+\subsubsection*{subsubsection without number}
+text \textbf{bold text} text. Some math: $2+2=5$
+\subsubsection{subsubsection}
 text \emph{emphasized text} text. \cite{WC:1953}
 discovered the structure of DNA.
 

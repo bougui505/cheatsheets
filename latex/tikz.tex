@@ -1,0 +1,19 @@
+\subsection{Coordinate specifications}
+\begin{tabular}[]{p{0.1\textwidth}p{0.1\textwidth}l}
+&&library needed\\
+$(x,y)$&Cartesian coordinates&\\
+($\theta$:r)&polar coordinates&\\
+\verb |($(A)+{sin(60)}*(B)$)|         &coordinate calculations&calc\\
+\verb |($(A)!.25!(B)$)|&                 partway calculations&calc\\
+\verb |($(A)!3cm!(B)$)|&                 3~cm from (A) in direction of (B)&calc\\
+\verb |($(A)!1.2!30:(B)$)|&              stretch by 1.2, then rotate by 30$^{\circ}$&calc\\
+\verb |($(A)!(B)!(C)$)|&                 projection of point B onto line AC&calc\\
+\verb |($(A)!(B)!30:(C)$)|&              project B onto line AC, then rotate by 30$^{\circ}$&calc\\
+\verb |\node[above=1cm of| \verb|somenode.north]|&position new node 1~cm above existing anchor&positioning\\
+\end{tabular}
+
+\subsection{General}
+\begin{tabular}{ll}
+  \verb|\coordinate (X) at (3,5);|&name a point X\\
+  \verb|\node[options] (X) at (3,5) {};|&place a node and name it X\\
+\end{tabular}
