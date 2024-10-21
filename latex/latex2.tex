@@ -6,3 +6,15 @@
   max totalsize={\textwidth}{\textheight},center}
 \end{adjustbox}
 \end{verbatim}
+
+\subsection{Beamer class}
+\subsubsection{Accessing section names}
+\verb |\secname|\\
+\verb |\subsecname|\\
+\subsubsection{Animations}
+Use \verb|%| at the end of the line to avoid interpeting new line causing x-shift in the animation:
+\begin{verbatim}
+\includegraphics<1>[height=0.5\textheight]{figures/1.pdf}%
+\includegraphics<2>[height=0.5\textheight]{figures/2.pdf}
+\end{verbatim}
+\verb|\visible<3>{...}| Put a set of command visible only on slide 3

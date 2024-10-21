@@ -16,13 +16,16 @@ $(x,y)$&Cartesian coordinates&\\
 \subsubsection{Absolute positioning on the page}
 \begin{verbatim}
 \begin{tikzpicture}[remember picture, overlay]
-  \node [] (node1) at (current page.west) [] {};
+  \node [] (node1) at (current page.west) {};
 \end{tikzpicture}
 \end{verbatim}
 \includegraphics[width=0.33\textwidth]{figures/rectangle_shape.pdf}
 
 \subsection{General}
-\begin{tabular}{ll}
-  \verb|\coordinate (X) at (3,5);|&name a point X\\
-  \verb|\node[options] (X) at (3,5) {};|&place a node and name it X\\
-\end{tabular}
+\verb|\coordinate (X) at (3,5);| name a point X\\
+\verb|\node[options] (X) at (3,5) {};| place a node and name it X\\
+
+\subsection{Node options}
+\verb |node font=\tiny|\\
+\verb 'align=left|center|right' (handling carriage return in nodes)
+\verb |text=blue| text color
