@@ -8,3 +8,14 @@
 target: prerequisite1 prerequisite2 ...
   commands
 \end{verbatim}
+
+\subsection{User defined functions}
+\begin{verbatim}
+define myfunc
+    echo $(1)
+    echo $(2)
+endef
+
+all:
+    $(call myfunc,hello world,hello the universe)
+\end{verbatim}
