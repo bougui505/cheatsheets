@@ -1,10 +1,15 @@
 \subsection{General}
+\subsubsection{Online TikZ manuel}
+\url{https://tikz.dev/}\\
+\subsubsection{Package and libraries}
 \verb|\usepackage{tikz}| using tikz package\\
 \verb|\usetikzlibrary{positioning}| Load a given tikz library\\
+\subsubsection{Syntax}
 \verb|\coordinate (X) at (3,5);| name a point X\\
 \verb|\node[options] (X) at (3,5) {};| place a node and name it X\\
 
 \subsection{Coordinate specifications}
+\subsubsection{Coordinate calculations}
 \begin{tabular}[]{p{0.1\textwidth}p{0.1\textwidth}l}
 &&library needed\\
 $(x,y)$&Cartesian coordinates&\\
@@ -40,7 +45,23 @@ $(x,y)$&Cartesian coordinates&\\
   \draw (C) -- (D);
 \end{tikzpicture}
   \end{verbatim}
-\end{minipage}
+\end{minipage}\\
+\begin{tikzpicture}
+  \node (A) {A};
+  \node[right=of A] (B) {B};
+  \path (A) -- (B) node[midway] (M) {M};
+  \draw (A) -- (M) -- (B);
+\end{tikzpicture}
+\begin{minipage}[c]{3cm}
+  \begin{verbatim}
+\begin{tikzpicture}
+  \node (A) {A};
+  \node[right=of A] (B) {B};
+  \path (A) -- (B) node[midway] (M) {M};
+  \draw (A) -- (M) -- (B);
+\end{tikzpicture}
+  \end{verbatim}
+\end{minipage}\\
 
 \subsubsection{Absolute positioning on the page}
 \begin{verbatim}
@@ -100,9 +121,13 @@ $(x,y)$&Cartesian coordinates&\\
 \end{tikzpicture}
 
 \subsection{Node options}
+\subsubsection{Fonts and text colors}
 \verb |node font=\tiny|\\
-\verb 'align=left|center|right' (handling carriage return in nodes)\\
+\verb |font=\bfseries| Node font in bold\\
 \verb |text=blue| text color\\
+\subsubsection{Text alignment in nodes}
+\verb 'align=left|center|right' (handling carriage return in nodes)\\
+\subsubsection{Style definition}
 \verb |\begin{tikzpicture}[stylename/.style={node options...}]| Defining a node style named stylename\\
 \verb |node[stylename] (node1) {};| Using a defined style
 
@@ -128,5 +153,11 @@ $(x,y)$&Cartesian coordinates&\\
   \coordinate[right=of P1] (P2);
   \draw[-{Stealth[round]}] (P1) -- (P2);
   \node[right of=P2, anchor=west] {\verb|\draw[-{Stealth[round]}] (P1) -- (P2);|};
+\end{tikzpicture}
+\begin{tikzpicture}
+  \coordinate (P1);
+  \coordinate[right=of P1] (P2);
+  \draw[-{Stealth[round,length=4mm]}] (P1) -- (P2);
+  \node[right of=P2, anchor=west] {\verb|\draw[-{Stealth[round,length=4mm]}] (P1) -- (P2);|};
 \end{tikzpicture}
 \verb |\begin{tikzpicture}[>={Stealth[round]}]| Defining an arrow style for the whole picture\\

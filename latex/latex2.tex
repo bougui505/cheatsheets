@@ -7,6 +7,18 @@
 \end{adjustbox}
 \end{verbatim}
 
+\subsection{minipage}
+\begin{minipage}[c]{3cm}
+  \lipsum[][1-3]
+\end{minipage}
+\begin{minipage}[c]{3cm}
+  \begin{verbatim}
+\begin{minipage}[c]{3cm}
+  \lipsum[][1-3]
+\end{minipage}
+  \end{verbatim}
+\end{minipage}
+
 \subsection{Beamer class}
 \subsubsection{Accessing section names}
 \verb |\secname|\\
@@ -18,6 +30,14 @@ Use \verb|%| at the end of the line to avoid interpeting new line causing x-shif
 \includegraphics<2>[height=0.5\textheight]{figures/2.pdf}
 \end{verbatim}
 \verb|\visible<3>{...}| Put a set of command visible only on slide 3
+\subsubsection{Custom footer}
+\begin{verbatim}
+\newcommand{\secfoot}{
+\begin{tikzpicture}[remember picture, overlay]
+  \node [anchor=south,node font=\tiny,text=blue!50] (node1) at (current page.south) [] {\secname/\subsecname};
+\end{tikzpicture}
+}
+\end{verbatim}
 
 \subsection{LaTeX default colors -- xcolor package --}
 \begin{center}
