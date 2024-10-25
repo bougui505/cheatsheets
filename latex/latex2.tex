@@ -20,9 +20,11 @@
 \end{minipage}
 
 \subsection{Beamer class}
+
 \subsubsection{Accessing section names}
 \verb |\secname|\\
 \verb |\subsecname|\\
+
 \subsubsection{Animations}
 Use \verb|%| at the end of the line to avoid interpeting new line causing x-shift in the animation:
 \begin{verbatim}
@@ -30,12 +32,27 @@ Use \verb|%| at the end of the line to avoid interpeting new line causing x-shif
 \includegraphics<2>[height=0.5\textheight]{figures/2.pdf}
 \end{verbatim}
 \verb|\visible<3>{...}| Put a set of command visible only on slide 3
+
 \subsubsection{Custom footer}
 \begin{verbatim}
 \newcommand{\secfoot}{
 \begin{tikzpicture}[remember picture, overlay]
   \node [anchor=south,node font=\tiny,text=blue!50] (node1) at (current page.south) [] {\secname/\subsecname};
 \end{tikzpicture}
+}
+\end{verbatim}
+
+\subsubsection{Title slide for sections}
+\begin{verbatim}
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
 }
 \end{verbatim}
 
