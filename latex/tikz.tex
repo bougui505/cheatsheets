@@ -185,7 +185,6 @@ $(x,y)$&Cartesian coordinates&\\
           {\scriptsize\texttt{(n.\anchor)}};
 \end{tikzpicture}
 \end{adjustbox}
-Adapted from: \url{https://tikz.org/examples/chapter-03-drawing-positioning-and-aligning-nodes}
 \begin{adjustbox}{max totalsize={0.3\textwidth}{\textheight},center}
 \begin{tikzpicture}[font={\scriptsize\ttfamily}]
   \node[draw,rectangle,outer sep=1cm,inner sep=1cm,color=black!50, draw, fill=blue!10]
@@ -213,6 +212,7 @@ Adapted from: \url{https://tikz.org/examples/chapter-03-drawing-positioning-and-
   \node[above] at ($(n.center)!0.5!(n.north)$) {shape rectangle};
 \end{tikzpicture}
 \end{adjustbox}
+Adapted from: \url{https://tikz.org/examples/chapter-03-drawing-positioning-and-aligning-nodes}
 
 \subsection{Geometric figures}
 \begin{tikzpicture}
@@ -234,4 +234,52 @@ Adapted from: \url{https://tikz.org/examples/chapter-03-drawing-positioning-and-
   \path[fill=lightgray] (0,0) rectangle ++(2,1);
 \end{tikzpicture}
 \end{verbatim}
+\end{minipage}
+
+\subsection{scope environment}
+\begin{tikzpicture}[ultra thick]
+  \begin{scope}[red]
+    \draw (0mm,10mm) -- (10mm,10mm) 
+      node[midway,fill=white] {A};
+    \draw (0mm,7mm) -- (10mm,7mm)
+      node[midway,fill=white] {B};
+  \end{scope}
+  \draw (0mm,4mm) -- (10mm,4mm);
+\end{tikzpicture}
+\begin{minipage}[c]{3cm}
+  \begin{verbatim}
+\begin{tikzpicture}[ultra thick]
+  \begin{scope}[red]
+    \draw (0mm,10mm) -- (10mm,10mm)
+      node[midway,fill=white] {A};
+    \draw (0mm,7mm) -- (10mm,7mm)
+     node[midway,fill=white] {B};
+  \end{scope}
+  \draw (0mm,4mm) -- (10mm,4mm);
+\end{tikzpicture}
+  \end{verbatim}
+\end{minipage}
+
+\subsubsection{Positionning relatively to a scope}
+\begin{tikzpicture}[ultra thick]
+  \begin{scope}[red,local bounding box=scope1]
+    \draw (0mm,10mm) -- (10mm,10mm) 
+      node[midway,fill=white] {A};
+    \draw (0mm,7mm) -- (10mm,7mm)
+      node[midway,fill=white] {B};
+  \end{scope}
+  \node[draw,right=0.1cm of scope1] {node};
+\end{tikzpicture}
+\begin{minipage}[c]{3cm}
+  \begin{verbatim}
+\begin{tikzpicture}[ultra thick]
+  \begin{scope}[red,local bounding box=scope1]
+    \draw (0mm,10mm) -- (10mm,10mm) 
+      node[midway,fill=white] {A};
+    \draw (0mm,7mm) -- (10mm,7mm)
+      node[midway,fill=white] {B};
+  \end{scope}
+  \node[draw,right=0.1cm of scope1] {node};
+\end{tikzpicture}
+  \end{verbatim}
 \end{minipage}
