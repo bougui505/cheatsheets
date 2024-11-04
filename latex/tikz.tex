@@ -260,7 +260,7 @@ Adapted from: \url{https://tikz.org/examples/chapter-03-drawing-positioning-and-
   \end{verbatim}
 \end{minipage}
 
-\subsubsection{Positionning relatively to a scope}
+\subsubsection{Positionning scopes relatively to other elements}
 \begin{tikzpicture}[ultra thick]
   \begin{scope}[red,local bounding box=scope1]
     \draw (0mm,10mm) -- (10mm,10mm) 
@@ -280,6 +280,25 @@ Adapted from: \url{https://tikz.org/examples/chapter-03-drawing-positioning-and-
       node[midway,fill=white] {B};
   \end{scope}
   \node[draw,right=0.1cm of scope1] {node};
+\end{tikzpicture}
+  \end{verbatim}
+\end{minipage}
+
+\begin{tikzpicture}[ultra thick]
+  \node[draw] (node1) {node1};
+  \begin{scope}[red,shift={($(node1.east)+(0.4cm,0)$)}]
+    \node[draw] (A) {A};
+    \node[draw,below=0.1cm of A] (B) {B};
+  \end{scope}
+\end{tikzpicture}
+\begin{minipage}[c]{3cm}
+  \begin{verbatim}
+\begin{tikzpicture}[ultra thick]
+  \node[draw] (node1) {node1};
+  \begin{scope}[red,shift={($(node1.east)+(0.4cm,0)$)}]
+    \node[draw] (A) {A};
+    \node[draw,below=0.1cm of A] (B) {B};
+  \end{scope}
 \end{tikzpicture}
   \end{verbatim}
 \end{minipage}
