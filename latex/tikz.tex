@@ -65,15 +65,13 @@ $(x,y)$&Cartesian coordinates&\\
 
 \textbf{Default distance between nodes}\\
 \vspace{1ex}
-\begin{tikzpicture}[every node/.style={draw, node distance=0.2cm}]
+\begin{tikzpicture}[node distance=0.2cm]
   \node (n1) {n1};
   \node[right=of n1] (n2) {n2};
 \end{tikzpicture}
 \begin{minipage}[c]{3cm}
   \begin{verbatim}
-\begin{tikzpicture}[
-    every node/.style={draw, node distance=0.2cm}
-    ]
+\begin{tikzpicture}[node distance=0.2cm]
   \node (n1) {n1};
   \node[right=of n1] (n2) {n2};
 \end{tikzpicture}
@@ -327,7 +325,8 @@ Adapted from: \url{https://tikz.org/examples/chapter-03-drawing-positioning-and-
   \begin{verbatim}
 \begin{tikzpicture}[ultra thick]
   \node[draw] (node1) {node1};
-  \begin{scope}[red,shift={($(node1.east)+(0.4cm,0)$)}]
+  \begin{scope}[red,
+          shift={($(node1.east)+(0.4cm,0)$)}]
     \node[draw] (A) {A};
     \node[draw,below=0.1cm of A] (B) {B};
   \end{scope}
@@ -335,8 +334,42 @@ Adapted from: \url{https://tikz.org/examples/chapter-03-drawing-positioning-and-
   \end{verbatim}
 \end{minipage}
 
-\section{Nested tikzpicture}
-\begin{tikzpicture}[every node/.style={draw, node distance=0.2cm}]
+\subsection{Nested tikzpicture}
+\begin{tikzpicture}[every node/.style={draw},
+                    node distance=0.2cm]
   \node (n1) {n1};
   \node[right=of n1] (n2) {n2};
+  \node[below=of n1] (n3) {n3};
+  \node[below=of n2] (n4) {n4};
+  \path (n2.east) -- (n4.east) coordinate[midway] (m);
+  \node[right=of m] {
+    \begin{tikzpicture}
+      \node (n5) {n5}; 
+      \node[right=of n5] (n6) {n6};
+      \node[below=of n5] (n7) {n7};
+      \node[below=of n6] (n8) {n8};
+    \end{tikzpicture}
+  };
 \end{tikzpicture}
+\begin{minipage}[c]{3cm}
+  \begin{verbatim}
+\begin{tikzpicture}[
+    every node/.style={draw},
+    node distance=0.2cm]
+  \node (n1) {n1};
+  \node[right=of n1] (n2) {n2};
+  \node[below=of n1] (n3) {n3};
+  \node[below=of n2] (n4) {n4};
+  \path (n2.east) -- (n4.east)
+    coordinate[midway] (m);
+  \node[right=of m] {
+    \begin{tikzpicture}
+      \node (n5) {n5}; 
+      \node[right=of n5] (n6) {n6};
+      \node[below=of n5] (n7) {n7};
+      \node[below=of n6] (n8) {n8};
+    \end{tikzpicture}
+  };
+\end{tikzpicture}
+  \end{verbatim}
+\end{minipage}
