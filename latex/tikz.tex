@@ -63,6 +63,23 @@ $(x,y)$&Cartesian coordinates&\\
   \end{verbatim}
 \end{minipage}\\
 
+\textbf{Default distance between nodes}\\
+\vspace{1ex}
+\begin{tikzpicture}[every node/.style={draw, node distance=0.2cm}]
+  \node (n1) {n1};
+  \node[right=of n1] (n2) {n2};
+\end{tikzpicture}
+\begin{minipage}[c]{3cm}
+  \begin{verbatim}
+\begin{tikzpicture}[
+    every node/.style={draw, node distance=0.2cm}
+    ]
+  \node (n1) {n1};
+  \node[right=of n1] (n2) {n2};
+\end{tikzpicture}
+  \end{verbatim}
+\end{minipage}
+
 \subsubsection{Absolute positioning on the page}
 \begin{verbatim}
 \begin{tikzpicture}[remember picture, overlay]
@@ -133,7 +150,22 @@ $(x,y)$&Cartesian coordinates&\\
 \verb 'align=left|center|right' (handling carriage return in nodes)\\
 \subsubsection{Style definition}
 \verb |\begin{tikzpicture}[stylename/.style={node options...}]| Defining a node style named stylename\\
-\verb |node[stylename] (node1) {};| Using a defined style
+\verb |node[stylename] (node1) {};| Using a defined style\\
+
+\vspace{1ex}
+\textbf{Style definition for every node}\\
+\begin{tikzpicture}[every node/.style={draw}]
+  \node (n1) {n1};
+  \node[right=of n1] (n2) {n2};
+\end{tikzpicture}
+\begin{minipage}[c]{3cm}
+  \begin{verbatim}
+\begin{tikzpicture}[every node/.style={draw}]
+  \node (n1) {n1};
+  \node[right=of n1] (n2) {n2};
+\end{tikzpicture}
+  \end{verbatim}
+\end{minipage}
 
 \subsection{Arrows}
 \begin{verbatim}
@@ -302,3 +334,9 @@ Adapted from: \url{https://tikz.org/examples/chapter-03-drawing-positioning-and-
 \end{tikzpicture}
   \end{verbatim}
 \end{minipage}
+
+\section{Nested tikzpicture}
+\begin{tikzpicture}[every node/.style={draw, node distance=0.2cm}]
+  \node (n1) {n1};
+  \node[right=of n1] (n2) {n2};
+\end{tikzpicture}
