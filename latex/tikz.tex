@@ -69,7 +69,7 @@ $(x,y)$&Cartesian coordinates&\\
   \node [] (node1) at (current page.west) {};
 \end{tikzpicture}
 \end{verbatim}
-\includegraphics[width=0.33\textwidth]{figures/rectangle_shape.pdf}
+% \includegraphics[width=0.33\textwidth]{figures/rectangle_shape.pdf}
 \subsubsection{Matrix positioning}
 \begin{tikzpicture}
   [n/.style={draw,minimum width=1cm,minimum height=4ex,color=black}]
@@ -106,7 +106,7 @@ $(x,y)$&Cartesian coordinates&\\
 \node[rectangle,draw,minimum width=8cm, minimum height=1cm] () {\verb|\node[rectangle,draw,minimum width=8cm,minimum height=1cm](){};|};
 \end{tikzpicture}
 
-\subsection{Node shapes and filling colors}
+\subsection{Node shapes, filling colors and line width}
 \begin{tikzpicture}
   \node[rectangle,draw=black,minimum width=1.5cm, minimum height=4ex] (rectangle) {}; 
   \node[right=0.2cm of rectangle]{\verb|\node[rectangle,draw=black](){};|};
@@ -118,6 +118,10 @@ $(x,y)$&Cartesian coordinates&\\
 \begin{tikzpicture}
   \node[rectangle,draw=black,minimum width=1.5cm, minimum height=4ex,fill=blue] (rectangle) {}; 
   \node[right=0.2cm of rectangle]{\verb|\node[rectangle,draw=black,fill=blue](){};|};
+\end{tikzpicture}
+\begin{tikzpicture}
+  \node[rectangle,draw=black,minimum width=1.5cm, minimum height=4ex, line width=2pt] (rectangle) {}; 
+  \node[right=0.2cm of rectangle]{\verb|\node[rectangle,draw=black, line width=2pt](){};|};
 \end{tikzpicture}
 
 \subsection{Node options}
@@ -161,3 +165,73 @@ $(x,y)$&Cartesian coordinates&\\
   \node[right of=P2, anchor=west] {\verb|\draw[-{Stealth[round,length=4mm]}] (P1) -- (P2);|};
 \end{tikzpicture}
 \verb |\begin{tikzpicture}[>={Stealth[round]}]| Defining an arrow style for the whole picture\\
+\subsection{Node anchors}
+\begin{adjustbox}{max totalsize={0.3\textwidth}{\textheight},center}
+\begin{tikzpicture}[node distance = 1mm,
+  shape example/.style = {
+    color=black!50, draw, fill=blue!10,
+    inner xsep=1.5cm, inner ysep=0.5cm,
+}]
+  \node[name=n,shape=rectangle,shape example]
+    {\Huge rectan\smash{g}le\hspace{3cm}node};
+  \foreach \anchor/\placement in
+    {center/above, text/below, 45/above right,
+       mid/right, mid east/right, mid west/left,
+       base/below, base east/below right, base west/below left,
+       north/above, south/below, east/above right, west/above left,
+       north east/above, south east/below, south west/below, north west/above}
+      \draw[shift=(n.\anchor)] plot[mark=x] coordinates{(0,0)}
+        node[\placement,label distance = 0mm,inner sep=3pt]
+          {\scriptsize\texttt{(n.\anchor)}};
+\end{tikzpicture}
+\end{adjustbox}
+Adapted from: \url{https://tikz.org/examples/chapter-03-drawing-positioning-and-aligning-nodes}
+\begin{adjustbox}{max totalsize={0.3\textwidth}{\textheight},center}
+\begin{tikzpicture}[font={\scriptsize\ttfamily}]
+  \node[draw,rectangle,outer sep=1cm,inner sep=1cm,color=black!50, draw, fill=blue!10]
+  (n) {{\sffamily\Large node n}};
+  \draw[<->,thick,blue] (n.south)
+      --++(0,1cm) node[midway,right]{outer sep};
+  \draw[<->,thick,red] (n.south) ++(0,1cm) 
+      --++(0,1cm)node[midway,right]{inner sep};
+  \node[,outer sep=0,draw,left,color=black!50, draw, fill=blue!10,] 
+      (m) at(n.west) {{\sffamily\Large node m}};
+  \draw[<->,blue,thick] (m.east) -- ++(1cm,0) node[midway,above] {outer}
+    node[midway,below] {sep};
+  \draw[<->,red,thick] ($(n.west)+(1,0)$) -- ++(1cm,0) node[midway,above] {inner}
+    node[midway,below] {sep};
+  \foreach \anchor/\placement in
+    {south west/below left,south/below,north/above,north west/above left,
+       north east/above right,south east/below right}
+       \draw[shift=(n.\anchor)] plot[mark=x] coordinates{(0,0)}
+        node[\placement,label distance = 0mm,inner sep=3pt] {(n.\anchor)};
+  \foreach \anchor/\placement in
+    {west/left,south/below,north/above}
+       \draw[shift=(m.\anchor)] plot[mark=x] coordinates{(0,0)}
+        node[\placement,label distance = 0mm,inner sep=3pt] {(m.\anchor)};
+  \draw[dashed] (n.south west) rectangle (n.north east);
+  \node[above] at ($(n.center)!0.5!(n.north)$) {shape rectangle};
+\end{tikzpicture}
+\end{adjustbox}
+
+\subsection{Geometric figures}
+\begin{tikzpicture}
+  \draw[draw=black] (0,0) rectangle ++(2,1);
+\end{tikzpicture}
+\begin{minipage}[c]{3cm}
+  \begin{verbatim}
+\begin{tikzpicture}
+  \draw[draw=black] (0,0) rectangle ++(2,1);
+\end{tikzpicture}
+\end{verbatim}
+\end{minipage}\\
+\begin{tikzpicture}
+  \path[fill=lightgray] (0,0) rectangle ++(2,1);
+\end{tikzpicture}
+\begin{minipage}[c]{3cm}
+  \begin{verbatim}
+\begin{tikzpicture}
+  \path[fill=lightgray] (0,0) rectangle ++(2,1);
+\end{tikzpicture}
+\end{verbatim}
+\end{minipage}

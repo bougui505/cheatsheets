@@ -37,7 +37,8 @@ Use \verb|%| at the end of the line to avoid interpeting new line causing x-shif
 \begin{verbatim}
 \newcommand{\secfoot}{
 \begin{tikzpicture}[remember picture, overlay]
-  \node [anchor=south,node font=\tiny,text=blue!50] (node1) at (current page.south) [] {\secname/\subsecname};
+  \node [anchor=south,node font=\tiny,text=blue!50]
+    (node1) at (current page.south) [] {\secname/\subsecname};
 \end{tikzpicture}
 }
 \end{verbatim}
