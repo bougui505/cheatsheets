@@ -185,6 +185,12 @@ $(x,y)$&Cartesian coordinates&\\
 \begin{tikzpicture}
   \coordinate (P1);
   \coordinate[right=of P1] (P2);
+  \draw[Stealth-Stealth] (P1) -- (P2);
+  \node[right of=P2, anchor=west] {\verb|\draw[Stealth-Stealth] (P1) -- (P2);|};
+\end{tikzpicture}
+\begin{tikzpicture}
+  \coordinate (P1);
+  \coordinate[right=of P1] (P2);
   \draw[-{Stealth[round]}] (P1) -- (P2);
   \node[right of=P2, anchor=west] {\verb|\draw[-{Stealth[round]}] (P1) -- (P2);|};
 \end{tikzpicture}
