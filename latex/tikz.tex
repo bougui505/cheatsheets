@@ -175,6 +175,12 @@ $(x,y)$&Cartesian coordinates&\\
   \coordinate[right=of P1] (P2);
   \draw[->] (P1) -- (P2);
   \node[right of=P2, anchor=west] {\verb|\draw[->] (P1) -- (P2);|};
+\end{tikzpicture}\\
+\begin{tikzpicture}
+  \coordinate (P1);
+  \coordinate[right=of P1] (P2);
+  \draw[-|] (P1) -- (P2);
+  \node[right of=P2, anchor=west] {\verb'\draw[-|] (P1) -- (P2);'};
 \end{tikzpicture}
 \begin{tikzpicture}
   \coordinate (P1);
