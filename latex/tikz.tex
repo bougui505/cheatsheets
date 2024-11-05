@@ -195,6 +195,19 @@ $(x,y)$&Cartesian coordinates&\\
   \node[right of=P2, anchor=west] {\verb|\draw[-{Stealth[round,length=4mm]}] (P1) -- (P2);|};
 \end{tikzpicture}
 \verb |\begin{tikzpicture}[>={Stealth[round]}]| Defining an arrow style for the whole picture\\
+\begin{tikzpicture}
+  \coordinate (P1);
+  \coordinate[right=of P1] (P2);
+  \draw[-latex,line width=2pt] (P1)--(P2) node[midway,above](){a};
+  \node[below=0.3cm of P1, anchor=west,xshift=-0.3cm] {\verb|\draw[-latex,line width=2pt] (P1)--(P2) node[midway,above](){a};|};
+\end{tikzpicture}
+\begin{tikzpicture}
+  \coordinate (P1);
+  \coordinate[right=of P1] (P2);
+  \draw[-latex,line width=2pt] (P1)--(P2) node[midway,below](){b};
+  \node[below=0.5cm of P1, anchor=west,xshift=-0.3cm] {\verb|\draw[-latex,line width=2pt] (P1)--(P2) node[midway,below](){b};|};
+\end{tikzpicture}
+
 \subsection{Node anchors}
 \begin{adjustbox}{max totalsize={0.3\textwidth}{\textheight},center}
 \begin{tikzpicture}[node distance = 1mm,
