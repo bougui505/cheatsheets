@@ -304,6 +304,37 @@ Adapted from: \url{https://tikz.org/examples/chapter-03-drawing-positioning-and-
 \end{tikzpicture}
 \end{verbatim}
 \end{minipage}
+\subsubsection{Shapes library}
+\textbf{Callouts}\\
+\verb|\usetikzlibrary{shapes.callouts}|\\
+\begin{tikzpicture}
+  \node[ellipse callout, draw] (hello) {Hello!};
+\end{tikzpicture}
+\begin{minipage}[c]{3cm}
+  \begin{verbatim}
+\begin{tikzpicture}
+  \node[ellipse callout, draw] (hello) {Hello!};
+\end{tikzpicture}
+  \end{verbatim}
+\end{minipage}\\
+\begin{tikzpicture}
+  \draw [help lines] grid(3,2); 
+  \node [ellipse callout,fill=red!50,callout relative pointer={(0,1)}] at (3,1) {Relative};
+  \node [ellipse callout,fill=blue!50, callout absolute pointer={(0,1)}] at (1,0) {Absolute};
+\end{tikzpicture}\\
+\begin{minipage}[c]{3cm}
+  \begin{verbatim}
+\begin{tikzpicture}
+  \draw [help lines] grid(3,2); 
+  \node [ellipse callout,
+   fill=red!50,
+   callout relative pointer={(0,1)}] at (3,1) {Relative};
+  \node [ellipse callout,
+   fill=blue!50,
+   callout absolute pointer={(0,1)}] at (1,0) {Absolute};
+\end{tikzpicture}
+  \end{verbatim}
+\end{minipage}\\
 
 \subsection{scope environment}
 \begin{tikzpicture}[ultra thick]
