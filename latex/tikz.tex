@@ -449,3 +449,24 @@ Adapted from: \url{https://tikz.org/examples/chapter-03-drawing-positioning-and-
 \end{tikzpicture}
   \end{verbatim}
 \end{minipage}
+\subsection{Variables}
+\begin{tikzpicture}[node distance=1ex]
+\tikzmath{
+  \x1 = 3+4; \x2 = 30+40; \x3 = 300+400;
+}
+  \node(x1){x1=\x1};
+  \node[below=of x1](x2){x2=\x2};
+  \node[below=of x2](x3){x3=\x3};
+\end{tikzpicture}
+\begin{minipage}[c]{3cm}
+  \begin{verbatim}
+\begin{tikzpicture}[node distance=1ex]
+\tikzmath{
+  \x1 = 3+4; \x2 = 30+40; \x3 = 300+400;
+}
+  \node(x1){x1=\x1};
+  \node[below=of x1](x2){x2=\x2};
+  \node[below=of x2](x3){x3=\x3};
+\end{tikzpicture}
+  \end{verbatim}
+\end{minipage}
