@@ -9,6 +9,7 @@
 \usetikzlibrary{positioning,arrows.meta,calc,shapes.callouts,math}
 \usepackage{lipsum}
 \usepackage{adjustbox}
+\usepackage{fancyhdr}
 
 
 % To make this come out properly in landscape mode, do one of the following
@@ -51,7 +52,12 @@
 	}
 
 % Turn off header and footer
-\pagestyle{empty}
+%\pagestyle{empty}
+
+\fancyhf{}
+\fancyfoot[R]{\today}
+\fancyfoot[C]{\thepage}
+\pagestyle{fancy}
  
 
 % Redefine section commands to use less space

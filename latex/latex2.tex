@@ -83,3 +83,12 @@ Use \verb|%| at the end of the line to avoid interpeting new line causing x-shif
   };
 \end{tikzpicture}
 \end{center}
+
+\subsection{Header and footer}
+\begin{verbatim}
+\usepackage{fancyhdr}
+\fancyhf{}
+\fancyfoot[R]{\today}
+\fancyfoot[C]{\thepage}
+\pagestyle{fancy}
+\end{verbatim}
