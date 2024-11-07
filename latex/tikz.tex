@@ -76,7 +76,22 @@ $(x,y)$&Cartesian coordinates&\\
   \node[right=of n1] (n2) {n2};
 \end{tikzpicture}
   \end{verbatim}
-\end{minipage}
+\end{minipage}\\
+\textbf{Shifting node positions}\\
+\begin{tikzpicture}
+  [every node/.style={draw,circle}]
+  \node(n1){n1};
+  \node(n2) at ([shift={(5mm,0)}]n1) {n2};
+\end{tikzpicture}
+\begin{minipage}[c]{3cm}
+  \begin{verbatim}
+\begin{tikzpicture}
+  [every node/.style={draw,circle}]
+  \node(n1){n1};
+  \node(n2) at ([shift={(5mm,0)}]n1) {n2};
+\end{tikzpicture}
+  \end{verbatim}
+\end{minipage}\\
 
 \subsubsection{Absolute positioning on the page}
 \begin{verbatim}
@@ -137,6 +152,10 @@ $(x,y)$&Cartesian coordinates&\\
 \begin{tikzpicture}
   \node[rectangle,draw=black,minimum width=1.5cm, minimum height=4ex, line width=2pt] (rectangle) {}; 
   \node[right=0.2cm of rectangle]{\verb|\node[rectangle,draw=black, line width=2pt](){};|};
+\end{tikzpicture}
+\begin{tikzpicture}
+  \node[circle,draw=black] (circle) {node}; 
+  \node[right=0.2cm of circle]{\verb|\node[circle,draw=black](){node};|};
 \end{tikzpicture}
 
 \subsection{Node options}
