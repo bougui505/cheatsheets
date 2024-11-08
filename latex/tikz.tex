@@ -103,7 +103,7 @@ $(x,y)$&Cartesian coordinates&\\
 \subsubsection{Matrix positioning}
 \begin{tikzpicture}
   [n/.style={draw,minimum width=1cm,minimum height=4ex,color=black}]
-  \matrix[draw,color=red] (M) {
+  \matrix[draw,color=red,column sep=0.1ex, row sep=1ex] (M) {
     \node[n] {n1}; &&
     \node[n] {n2}; &&
     \node[n] {n3}; \\
@@ -115,11 +115,10 @@ $(x,y)$&Cartesian coordinates&\\
 \begin{minipage}[c]{3cm}
   \begin{verbatim}
 \begin{tikzpicture}
-  [n/.style={draw,
-             minimum width=1cm,
-             minimum height=4ex,
-             color=black}]
-  \matrix[draw,color=red] (M) {
+  [n/.style={draw,minimum width=1cm,
+      minimum height=4ex,color=black}]
+  \matrix[draw,color=red,
+    column sep=0.1ex, row sep=1ex] (M) {
     \node[n] {n1}; &&
     \node[n] {n2}; &&
     \node[n] {n3}; \\
