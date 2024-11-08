@@ -57,7 +57,8 @@ Use \verb|%| at the end of the line to avoid interpeting new line causing x-shif
 }
 \end{verbatim}
 
-\subsection{LaTeX default colors -- xcolor package --}
+\subsection{Colors}
+\subsubsection{LaTeX default colors -- xcolor package --}
 \begin{center}
 \begin{tikzpicture}[c/.style={minimum width=1.5cm,minimum height=4ex,rectangle,draw}]
   \matrix{
@@ -83,6 +84,20 @@ Use \verb|%| at the end of the line to avoid interpeting new line causing x-shif
   };
 \end{tikzpicture}
 \end{center}
+
+\subsubsection{LaTeX RGB colors}
+\definecolor{ultramarine}{RGB}{0,32,96} % values in the interval [0,255]
+\textcolor{ultramarine}{Ultramarine \rule{0.4cm}{0.4cm}}
+\begin{minipage}[c]{3cm}
+  \begin{verbatim}
+\usepackage{xcolor}
+    [...]
+% values in the interval [0,255]
+\definecolor{ultramarine}{RGB}{0,32,96}
+\textcolor{ultramarine}{Ultramarine
+                \rule{0.4cm}{0.4cm}}
+  \end{verbatim}
+\end{minipage}
 
 \subsection{Header and footer}
 \begin{verbatim}
