@@ -348,13 +348,14 @@ Adapted from: \url{https://tikz.org/examples/chapter-03-drawing-positioning-and-
 \end{tikzpicture}
   \end{verbatim}
 \end{minipage}\\
+\begin{center}
 \begin{tikzpicture}
   \draw [help lines] grid(3,2); 
   \node [ellipse callout,fill=red!50,callout relative pointer={(0,1)}] at (3,1) {Relative};
   \node [ellipse callout,fill=blue!50, callout absolute pointer={(0,1)}] at (1,0) {Absolute};
-\end{tikzpicture}\\
-\begin{minipage}[c]{3cm}
-  \begin{verbatim}
+\end{tikzpicture}
+\end{center}
+\begin{verbatim}
 \begin{tikzpicture}
   \draw [help lines] grid(3,2); 
   \node [ellipse callout,
@@ -364,8 +365,7 @@ Adapted from: \url{https://tikz.org/examples/chapter-03-drawing-positioning-and-
    fill=blue!50,
    callout absolute pointer={(0,1)}] at (1,0) {Absolute};
 \end{tikzpicture}
-  \end{verbatim}
-\end{minipage}\\
+\end{verbatim}
 
 \subsection{scope environment}
 \begin{tikzpicture}[ultra thick]
@@ -503,6 +503,7 @@ Adapted from: \url{https://tikz.org/examples/chapter-03-drawing-positioning-and-
 \end{minipage}
 
 \subsection{Magnifying a Part of a Picture: the spy library}
+\begin{center}
 \begin{tikzpicture}
   [spy using outlines={circle, magnification=4, size=2cm, connect spies}]
 
@@ -517,7 +518,10 @@ Adapted from: \url{https://tikz.org/examples/chapter-03-drawing-positioning-and-
   \spy [blue, size=1cm] on (1,1)
               in node [right] at (0,-1.25);
 \end{tikzpicture}
+\end{center}
 \begin{verbatim}
+\usetikzlibrary {decorations.fractals,spy}
+    [...]
 \begin{tikzpicture}
   [spy using outlines={circle, magnification=4, size=2cm,
                        connect spies}]
