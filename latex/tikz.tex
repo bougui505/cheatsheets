@@ -537,3 +537,39 @@ Adapted from: \url{https://tikz.org/examples/chapter-03-drawing-positioning-and-
               in node [right] at (0,-1.25);
 \end{tikzpicture}
 \end{verbatim}
+
+\subsection{Pics: Custom shapes}
+\begin{tikzpicture}[scale=0.5]
+\tikzset{
+pics/mynode/.style args={#1,#2,#3}{
+    code={
+      \draw (0,0) -- (0.5,-0.5) -- (1,0) -- (1,1) -- (0,1) -- (0,0);
+      \node[#3] (#1) at (0.5,0.5) {#2};
+    }
+}
+}
+\draw (0,0) pic{mynode={A, Hi, blue}};
+\draw (0,3) pic{mynode={B, Hello, red}};
+\draw (2,1.5) pic{mynode={C, Bye,}};
+\draw[thick, blue] (A)--(B)--(C)--(A);
+\end{tikzpicture}
+\begin{minipage}[c]{3cm}
+  \begin{verbatim}
+\begin{tikzpicture}
+\tikzset{
+pics/mynode/.style args={#1,#2,#3}{
+    code={
+      \draw (0,0) -- (1,-1) --
+        (2,0) -- (2,2) -- 
+        (0,2) -- (0,0);
+      \node[#3] (#1) at (1,1) {#2};
+    }
+}
+}
+\draw (0,0) pic{mynode={A, Hi, blue}};
+\draw (0,3) pic{mynode={B, Hello, red}};
+\draw (2,1.5) pic{mynode={C, Bye,}};
+\draw[thick, blue] (A)--(B)--(C)--(A);
+\end{tikzpicture}
+  \end{verbatim}
+\end{minipage}
