@@ -156,9 +156,11 @@ $(x,y)$&Cartesian coordinates&\\
   \node[circle,draw=black] (circle) {node}; 
   \node[right=0.2cm of circle]{\verb|\node[circle,draw=black](){node};|};
 \end{tikzpicture}
-\begin{tikzpicture}[scale=1]
+\begin{adjustbox}{
+max totalsize={0.333\textwidth}{\textheight},center}
+\begin{tikzpicture}
     \tikzstyle{ann} = [draw=none,fill=none,right]
-    \matrix[nodes={draw, ultra thick, fill=blue!20},
+    \matrix[nodes={draw, ultra thick, fill=blue!20,align=center},
         row sep=0.3cm,column sep=0.5cm] {
     \node[draw=none,fill=none] {Plain node}; &
     \node[rectangle] {Rectangle}; &
@@ -178,14 +180,18 @@ $(x,y)$&Cartesian coordinates&\\
     \node[star,star points=7,star point ratio=0.8] {$p=7$};&
     \node[star,star points=10] {$p=9$};&
     \node[ann]{Star};\\
+    \node[trapezium]{Trapezium};&&
+    \node[trapezium,trapezium left angle=120,trapezium right angle=60]{Trapezium\\left angle=120\\right angle=60};\\
     };
 \end{tikzpicture}
+\end{adjustbox}
 \begin{verbatim}
 \usetikzlibrary{shapes}
   [...]
+   
 \begin{tikzpicture}[scale=1]
     \tikzstyle{ann} = [draw=none,fill=none,right]
-    \matrix[nodes={draw, ultra thick, fill=blue!20},
+    \matrix[nodes={draw, ultra thick, fill=blue!20,align=center},
         row sep=0.3cm,column sep=0.5cm] {
     \node[draw=none,fill=none] {Plain node}; &
     \node[rectangle] {Rectangle}; &
@@ -205,9 +211,12 @@ $(x,y)$&Cartesian coordinates&\\
     \node[star,star points=7,star point ratio=0.8] {$p=7$};&
     \node[star,star points=10] {$p=9$};&
     \node[ann]{Star};\\
+    \node[trapezium]{Trapezium};&&
+    \node[trapezium,trapezium left angle=120,
+          trapezium right angle=60]
+          {Trapezium\\left angle=120\\right angle=60};\\
     };
 \end{tikzpicture}
-   
 \end{verbatim}
 
 \subsection{Node options}
