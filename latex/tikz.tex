@@ -257,6 +257,41 @@ reversed diagonal fill/.style 2 args={
 \end{verbatim}
 \end{minipage}
 
+\vspace{1ex}
+\noindent\rule{.33\textwidth}{0.4pt}
+
+\tikzset{
+  strikeoutnode/.style={
+    draw,
+    path picture={
+      \draw[black,line width=0.5pt,solid]
+        (path picture bounding box.north west) --
+        (path picture bounding box.south east);
+    }
+  }
+}
+\begin{tikzpicture}
+  \node[strikeoutnode]{strikeoutnode}; 
+\end{tikzpicture}
+\begin{minipage}[c]{3cm}
+\begin{verbatim}
+\tikzset{
+  strikeoutnode/.style={
+    draw,
+    path picture={
+      \draw[black,line width=0.5pt,solid]
+        (path picture bounding box.north west) --
+        (path picture bounding box.south east);
+    }
+  }
+}
+\begin{tikzpicture}
+  \node[strikeoutnode]{strikeoutnode}; 
+\end{tikzpicture}
+\end{verbatim}
+\end{minipage}
+
+
 \subsection{Node options}
 \subsubsection{Fonts and text colors}
 \verb |node font=\tiny|\\
