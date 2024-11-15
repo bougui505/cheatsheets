@@ -219,6 +219,42 @@ max totalsize={0.333\textwidth}{\textheight},center}
 \end{tikzpicture}
 \end{verbatim}
 
+\subsubsection{Half filling}
+\tikzset{
+diagonal fill/.style 2 args={fill=#2, path picture={
+\fill[#1, sharp corners] (path picture bounding box.south west) -|
+                         (path picture bounding box.north east) -- cycle;}},
+reversed diagonal fill/.style 2 args={fill=#2, path picture={
+\fill[#1, sharp corners] (path picture bounding box.north west) |- 
+                         (path picture bounding box.south east) -- cycle;}}
+}
+\begin{tikzpicture}
+\node[diagonal fill={yellow}{green!80},
+      text width=1.5cm, minimum height=1.5cm,
+      text centered, rounded corners, draw, drop shadow]{Text};
+\end{tikzpicture}
+\begin{minipage}[c]{3cm}
+\begin{verbatim}
+\tikzset{
+diagonal fill/.style 2 args={fill=#2, path picture={
+\fill[#1, sharp corners]
+  (path picture bounding box.south west) -|
+  (path picture bounding box.north east) -- cycle;}},
+reversed diagonal fill/.style 2 args={
+  fill=#2, path picture={
+  \fill[#1, sharp corners]
+    (path picture bounding box.north west) |- 
+    (path picture bounding box.south east) -- cycle;}}
+}
+\begin{tikzpicture}
+\node[diagonal fill={yellow}{green!80},
+    text width=1.5cm, minimum height=1.5cm,
+    text centered, rounded corners, draw,
+    drop shadow]{Text};
+\end{tikzpicture}
+\end{verbatim}
+\end{minipage}
+
 \subsection{Node options}
 \subsubsection{Fonts and text colors}
 \verb |node font=\tiny|\\
