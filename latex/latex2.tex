@@ -111,3 +111,18 @@ Use \verb|%| at the end of the line to avoid interpeting new line causing x-shif
 \subsection{User defined variables}
 \verb|\def\MyVar{1}|\\
 To call the variable: \verb|\MyVar|
+
+\subsection{Annotate equations with \texttt{underset}}
+$$
+\underset{(m,n)}{A} \cdot \underset{(n,k)}{B} =
+  \underset{(m,k)}{C}
+$$
+\begin{verbatim}
+\usepackage{amsmath}
+  [...]
+$$
+\underset{(m,n)}{A} \times \underset{(n,k)}{B} =
+  \underset{(m,k)}{C}
+$$
+\end{verbatim}
+see: \url{https://tex.stackexchange.com/a/194863/19419}
