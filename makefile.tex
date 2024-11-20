@@ -18,10 +18,18 @@ target: prerequisite1 prerequisite2 ...
 \subsection{User defined functions}
 \begin{verbatim}
 define myfunc
-    echo $(1)
-    echo $(2)
+    echo ${1}
+    echo ${2}
 endef
 
 all:
     $(call myfunc,hello world,hello the universe)
 \end{verbatim}
+
+\subsection{Using wildcard for prerequisites}
+\begin{verbatim}
+.SECONDEXPANSION:
+figures: $$(wildcard figures/*)
+  [...]
+\end{verbatim}
+See: \url{https://stackoverflow.com/a/37623287/1679629}
