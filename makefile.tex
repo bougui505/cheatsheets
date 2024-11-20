@@ -2,6 +2,12 @@
 \verb|$@|: target name\\
 \verb|$^|: first prerequisite\\
 \verb|$$X|: Access to the user var. X\\
+\subsubsection{Makefile variables}
+\begin{verbatim}
+foo=World
+all:
+    echo "Hello ${foo}"
+\end{verbatim}
 
 \subsection{Syntax}
 \begin{verbatim}
