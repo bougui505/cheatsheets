@@ -42,6 +42,12 @@ Use \verb|%| at the end of the line to avoid interpeting new line causing x-shif
 \end{tikzpicture}
 }
 \end{verbatim}
+To insert the "Custom footer" on each slide, one can use the following command in the preamble:
+\begin{verbatim}
+\makeatletter
+    \pretocmd\beamer@checkframetitle{\secfoot}
+\makeatother
+\end{verbatim}
 
 \subsubsection{Title slide for sections}
 \begin{verbatim}
