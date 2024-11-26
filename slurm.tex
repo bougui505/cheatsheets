@@ -1,2 +1,5 @@
 \subsection{Listing QoS names}
 \verb|sacctmgr show qos format=name%-40|
+
+\subsection{List GPU machines}
+\verb!sinfo --format="%30N|%.22f|%.20G|%.10A|%.15E" | grep gpu!
