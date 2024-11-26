@@ -3,3 +3,22 @@
 
 \subsection{List GPU machines}
 \verb!sinfo --format="%30N|%.22f|%.20G|%.10A|%.15E" | grep gpu!
+
+\subsection{Allocating GPU machines with \texttt{sbatch}}
+\begin{verbatim}
+#!/usr/bin/env bash
+#SBATCH -o run.o -e run.e
+#SBATCH -p gpu
+#SBATCH --qos=gpu
+#SBATCH --gres=gpu:1
+\end{verbatim}
+
+\textbf{Specifying GPU and CPU memories}\\
+\begin{verbatim}
+#!/usr/bin/env bash
+#SBATCH -o run.o -e run.e
+#SBATCH -p gpu
+#SBATCH --qos=gpu
+#SBATCH --gres=gpu:1,gmem:48G
+#SBATCH --mem=128G
+\end{verbatim}
