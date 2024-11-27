@@ -7,7 +7,7 @@
 \subsection{Allocating GPU machines with \texttt{sbatch}}
 \begin{verbatim}
 #!/usr/bin/env bash
-#SBATCH -o run.o -e run.e
+#SBATCH -o run%A.o -e run%A.e
 #SBATCH -p gpu
 #SBATCH --qos=gpu
 #SBATCH --gres=gpu:1
@@ -16,9 +16,14 @@
 \textbf{Specifying GPU and CPU memories}\\
 \begin{verbatim}
 #!/usr/bin/env bash
-#SBATCH -o run.o -e run.e
+#SBATCH -o run%A.o -e run%A.e
 #SBATCH -p gpu
 #SBATCH --qos=gpu
 #SBATCH --gres=gpu:1,gmem:48G
 #SBATCH --mem=128G
 \end{verbatim}
+
+\subsection{Job arrays}
+\verb|#SBATCH --output=myjob_%A_%a.out|\\
+\verb|%A| for the job ID\\
+\verb|%a| for the array index.
