@@ -1,12 +1,22 @@
 \subsection{Variables}
 \verb|$@|: target name\\
-\verb|$^|: first prerequisite\\
+\verb|$^|: the name of all prerequisites\\
+Can be use to iterate over prerequisites: \verb|for f in $^; do ./$$f; done|
+\verb|$<|: The name of the first prerequisite\\
 \verb|$$X|: Access to the user var. X\\
 \subsubsection{Makefile variables}
 \begin{verbatim}
 foo=World
 all:
     echo "Hello ${foo}"
+\end{verbatim}
+
+\subsubsection{Passing variables from command line}
+\verb|make target FOO=bar|\\
+With the following Makefile:
+\begin{verbatim}
+target:
+  echo ${FOO}
 \end{verbatim}
 
 \subsection{Syntax}
