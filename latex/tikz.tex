@@ -714,3 +714,121 @@ pics/mynode/.style args={#1,#2,#3}{
 \end{tikzpicture}
   \end{verbatim}
 \end{minipage}
+
+\subsection{Grids}
+From: \url{https://tex.stackexchange.com/a/39698/19419}
+
+\makeatletter
+\def\grd@save@target#1{%
+  \def\grd@target{#1}}
+\def\grd@save@start#1{%
+  \def\grd@start{#1}}
+\tikzset{
+  grid with coordinates/.style={
+    to path={%
+      \pgfextra{%
+        \edef\grd@@target{(\tikztotarget)}%
+        \tikz@scan@one@point\grd@save@target\grd@@target\relax
+        \edef\grd@@start{(\tikztostart)}%
+        \tikz@scan@one@point\grd@save@start\grd@@start\relax
+        \draw[minor help lines] (\tikztostart) grid (\tikztotarget);
+        \draw[major help lines] (\tikztostart) grid (\tikztotarget);
+        \grd@start
+        \pgfmathsetmacro{\grd@xa}{\the\pgf@x/1cm}
+        \pgfmathsetmacro{\grd@ya}{\the\pgf@y/1cm}
+        \grd@target
+        \pgfmathsetmacro{\grd@xb}{\the\pgf@x/1cm}
+        \pgfmathsetmacro{\grd@yb}{\the\pgf@y/1cm}
+        \pgfmathsetmacro{\grd@xc}{\grd@xa + \pgfkeysvalueof{/tikz/grid with coordinates/major step}}
+        \pgfmathsetmacro{\grd@yc}{\grd@ya + \pgfkeysvalueof{/tikz/grid with coordinates/major step}}
+        \foreach \x in {\grd@xa,\grd@xc,...,\grd@xb}
+        \node[anchor=north] at (\x,\grd@ya) {\pgfmathprintnumber{\x}};
+        \foreach \y in {\grd@ya,\grd@yc,...,\grd@yb}
+        \node[anchor=east] at (\grd@xa,\y) {\pgfmathprintnumber{\y}};
+      }
+    }
+  },
+  minor help lines/.style={
+    help lines,
+    step=\pgfkeysvalueof{/tikz/grid with coordinates/minor step},
+    opacity=0.2
+  },
+  major help lines/.style={
+    help lines,
+    line width=\pgfkeysvalueof{/tikz/grid with coordinates/major line width},
+    step=\pgfkeysvalueof{/tikz/grid with coordinates/major step},
+    opacity=0.2
+  },
+  grid with coordinates/.cd,
+  minor step/.initial=.2,
+  major step/.initial=1,
+  major line width/.initial=2pt,
+}
+\makeatother
+\begin{tikzpicture}
+\draw (-2,-2) to[grid with coordinates] (2,2);
+  \node (A) at (0,0) {A};
+  \node (B) at (-1,0) {B};
+  \node (C) at (-0.5, 1) {C};
+\end{tikzpicture}
+\\Grid definition:
+\begin{verbatim}
+\makeatletter
+\def\grd@save@target#1{%
+  \def\grd@target{#1}}
+\def\grd@save@start#1{%
+  \def\grd@start{#1}}
+\tikzset{
+  grid with coordinates/.style={
+    to path={%
+      \pgfextra{%
+        \edef\grd@@target{(\tikztotarget)}%
+        \tikz@scan@one@point\grd@save@target\grd@@target\relax
+        \edef\grd@@start{(\tikztostart)}%
+        \tikz@scan@one@point\grd@save@start\grd@@start\relax
+        \draw[minor help lines] (\tikztostart) grid (\tikztotarget);
+        \draw[major help lines] (\tikztostart) grid (\tikztotarget);
+        \grd@start
+        \pgfmathsetmacro{\grd@xa}{\the\pgf@x/1cm}
+        \pgfmathsetmacro{\grd@ya}{\the\pgf@y/1cm}
+        \grd@target
+        \pgfmathsetmacro{\grd@xb}{\the\pgf@x/1cm}
+        \pgfmathsetmacro{\grd@yb}{\the\pgf@y/1cm}
+        \pgfmathsetmacro{\grd@xc}{\grd@xa \
+            + \pgfkeysvalueof{/tikz/grid with coordinates/major step}}
+        \pgfmathsetmacro{\grd@yc}{\grd@ya \
+            + \pgfkeysvalueof{/tikz/grid with coordinates/major step}}
+        \foreach \x in {\grd@xa,\grd@xc,...,\grd@xb}
+        \node[anchor=north] at (\x,\grd@ya) {\pgfmathprintnumber{\x}};
+        \foreach \y in {\grd@ya,\grd@yc,...,\grd@yb}
+        \node[anchor=east] at (\grd@xa,\y) {\pgfmathprintnumber{\y}};
+      }
+    }
+  },
+  minor help lines/.style={
+    help lines,
+    step=\pgfkeysvalueof{/tikz/grid with coordinates/minor step},
+    opacity=0.2
+  },
+  major help lines/.style={
+    help lines,
+    line width=\pgfkeysvalueof{/tikz/grid with coordinates/major line width},
+    step=\pgfkeysvalueof{/tikz/grid with coordinates/major step},
+    opacity=0.2
+  },
+  grid with coordinates/.cd,
+  minor step/.initial=.2,
+  major step/.initial=1,
+  major line width/.initial=2pt,
+}
+\makeatother
+\end{verbatim}
+Usage:
+\begin{verbatim}
+\begin{tikzpicture}
+\draw (-2,-2) to[grid with coordinates] (2,2);
+  \node (A) at (0,0) {A};
+  \node (B) at (-1,0) {B};
+  \node (C) at (-0.5, 1) {C};
+\end{tikzpicture}
+\end{verbatim}
